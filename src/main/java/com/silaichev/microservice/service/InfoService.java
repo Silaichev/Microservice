@@ -2,7 +2,7 @@ package com.silaichev.microservice.service;
 
 
 import com.silaichev.microservice.entity.Info;
-import com.silaichev.microservice.repository.InfoRepo;
+import com.silaichev.microservice.repository.InfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,9 +15,8 @@ public class InfoService {
     @Autowired
     private DBSequenceService dbSequenceService;
 
-
     @Autowired
-    private InfoRepo infoRepo;
+    private InfoRepository infoRepo;
 
     public void createInfo(Info info) {
         if (!checkExist(info)) {

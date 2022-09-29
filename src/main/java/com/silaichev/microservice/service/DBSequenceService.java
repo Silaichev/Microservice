@@ -1,7 +1,7 @@
 package com.silaichev.microservice.service;
 
 import com.silaichev.microservice.entity.DBSequence;
-import com.silaichev.microservice.repository.DBSequenceRepo;
+import com.silaichev.microservice.repository.DBSequenceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +11,7 @@ import java.util.Optional;
 public class DBSequenceService {
 
     @Autowired
-    private DBSequenceRepo sequenceRepo;
+    private DBSequenceRepository sequenceRepo;
 
     private static final String DB_SEQUENCE_ID = "info_sequence";
 
