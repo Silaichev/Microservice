@@ -13,9 +13,6 @@ public class CredentialService {
     @Autowired
     private CredentialsRepository credentialsRepository;
 
-    @Autowired
-    private DBSequenceService dbSequenceService;
-
     public void create(String cloudPseudonym) {
         credentialsRepository.save(new Credential(ID, cloudPseudonym));
     }

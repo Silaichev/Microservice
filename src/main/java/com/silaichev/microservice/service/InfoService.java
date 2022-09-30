@@ -1,12 +1,14 @@
 package com.silaichev.microservice.service;
 
 
+import com.google.gson.Gson;
 import com.silaichev.microservice.entity.Info;
 import com.silaichev.microservice.repository.InfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -18,8 +20,11 @@ public class InfoService {
     @Autowired
     private InfoRepository infoRepo;
 
+    public Info convertToInfo(String message){
+        return new Gson().fromJson(message, Info.class);
+    }
     public void createInfo(Info info) {
-        if (!checkExist(info)) {
+        if (Objects.nonNull(info)&&!checkExist(info)) {
             info.setId(dbSequenceService.incrementSequence());
             infoRepo.save(info);
         }
